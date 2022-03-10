@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href='/static/style.css'/>
+</head>
+
+<body>
+    <a href="{{ url_for('logout') }}">Press here to logout!</a>
+    <a href="{{ url_for('bp.react') }}">Press here to go to react!</a>
+    {% with messages = get_flashed_messages() %}
+			{% if messages %}
+				<ul id="flashes" class=flashes>
+					{% for message in messages %}
+						<li><b>{{ message }}</b></li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+		{% endwith %}
+    <h1>Welcome {{current_user.username}}!</h1>
+    <h2>Explore Phong's Favorite Movies</h2>
+    <div class='container'>
+        <div>
+            <p><b>{{titles[0]}}</b></p>
+            <p>{{overviews[0]}}</p>
+            <p>{{genres}}</p>
+            <a href="https://en.wikipedia.org/?curid={{websites[0]}}">wiki for the movie</a>
+            <p><img class='tv' src=https://image.tmdb.org/t/p/w500{{favImages[0]}}></p>
+        </div>
+    </div>
+    <form method="POST" action="/request">
+        MovieID:<input type="integer" name="movieID">
+        Rating(out of 5):<select name="rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        Review:<input type="text" name="review">
+        <input type="submit" value="Post Your Review!">
+    </form>
+</body>
+
+</html>

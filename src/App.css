@@ -1,10 +1,15 @@
 .App {
+  font-family: 'Courier New', monospace;
   text-align: center;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  border-radius: 30%;
+  width:200px;
+  height: auto;
+  padding: 100px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,8 +18,21 @@
   }
 }
 
+p{
+  color: black;
+}
+
+h2{
+  color: black;
+  margin: 0%;
+}
+
+form{
+  color:black;
+}
+
 .App-header {
-  background-color: #282c34;
+  background-color: beige;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
