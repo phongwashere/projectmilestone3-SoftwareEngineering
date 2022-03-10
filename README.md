@@ -68,3 +68,61 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+If you want to clone my repository, there are a couple steps you will have to do.
+## NOTE : All installations are required to run the code on your local machine
+
+## In your terminal:
+1. Install pip in your terminal
+2. Install flask
+3. Install python3-dotenv
+4. Install requests
+4. Go to the developer website for imdb and request an 'API_KEY'
+## The API_KEY is how imdb will authorize each session
+5. Create a .env file in the same respository as the .gitignore
+6. Inside the .env file you will want to type out this line:
+
+export API_KEY = $your api key$
+
+## More required installation
+7. Install PostgreSQL using these steps (you may run into some errors depending on your system):
+
+brew install postgresql
+brew services start postgresql
+psql -h localhost  
+# this is just to test out that postgresql is installed okay - type "\q" to quit
+# if the above command gives you an error like "database <user> does not exist," try the workaround in this link: https://stackoverflow.com/questions/17633422/psql-fatal-database-user-does-not-exist
+pip3 install psycopg2-binary
+pip3 install Flask-SQLAlchemy==2.1
+
+
+## we now need to setup a heroku database to store all of your information
+8. to edit or create apps from heroku we need to login to your account using:
+
+heroku login
+
+9. create a new app with:
+
+heroku create
+
+10. creating a new database
+
+heroku addons:create heroku-postgresql:hobby-dev 
+
+ If that doesn't work, add a -a {your-app-name} to the end of the command, with no braces
+
+11. use this command to show your DATABASE_URL and copy it
+
+heroku config
+
+12. in your .env file, you will need to add:
+
+export DATABASE_URL='$your DATABASE_URL'
+
+ make sure to use " or ' to enclose your DATABASE_URL
+
+13. also make sure that your DATABASE_URL starts with postgresql: instead of postgres:
+
+## Be sure to replace the $$$$ as well
+14. Change the directory of your terminal to the repository of the app if you have not already
+15. Run python app.py or python3 app.py
