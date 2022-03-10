@@ -126,3 +126,7 @@ export DATABASE_URL='$your DATABASE_URL'
 ## Be sure to replace the $$$$ as well
 14. Change the directory of your terminal to the repository of the app if you have not already
 15. Run python app.py or python3 app.py
+
+## What are at least 3 technical issues you encountered with your project milestone? How did you fix them? 
+1. the first I came across was being able to fetch the data from the flask endpoint to react.
+    ~ I solved this by adding a .results after data because in the GET request that we got from the flask endpoint, all the json information was contained in a variable named results

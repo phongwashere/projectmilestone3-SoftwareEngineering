@@ -26,6 +26,7 @@ bp = flask.Blueprint(
 @bp.route("/react")
 @login_required
 def react():
+    """ display react page """
     # NB: DO NOT add an "index.html" file in your normal templates folder
     # Flask will stop serving this React page correctly
     return flask.render_template("index.html")
@@ -69,6 +70,7 @@ class reviews(db.Model):
     
     @property
     def serialize(self):
+        """ serialize table """
         return{
             'id':self.id,
             'username':self.username,
@@ -79,6 +81,7 @@ class reviews(db.Model):
 
     @property
     def serialize_many(self):
+        """ making a format to serialize """
         return [ item.serialize for item in self.reviews ]
 
 db.create_all()
@@ -185,6 +188,7 @@ def rating():
 @bp.route('/get', methods = ['GET'])
 @login_required
 def get_ratings():
+    """ flask endpoint, grab table query data """
     return flask.jsonify(results=[i.serialize for i in reviews.query.filter_by(username=current_user.username).all()])
 
 @app.route('/reviews/<id>', methods=['DELETE'])
