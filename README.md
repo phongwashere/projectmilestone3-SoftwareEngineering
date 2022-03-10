@@ -130,3 +130,12 @@ export DATABASE_URL='$your DATABASE_URL'
 ## What are at least 3 technical issues you encountered with your project milestone? How did you fix them? 
 1. the first I came across was being able to fetch the data from the flask endpoint to react.
     ~ I solved this by adding a .results after data because in the GET request that we got from the flask endpoint, all the json information was contained in a variable named results
+
+2. the second problem I came across was printing out the data that I fetched. It was giving me a lot of objectErrors and typeErrors.
+    ~ The way I solved that was to add a @property to my database table and I serialized the information so that it could be printed out.
+
+3. the third main issue I had was figuring out the editing of the application. I couldn't find much useful information online about using '<inputs>'.
+    ~ In the end I got it to work by just using a basic form and checking to make sure that the row in the batabase they wanted to edit belonged to that user and then updated the items in the row.
+
+## What was the hardest part of the project for you, across all milestones? What is the most useful thing you learned, across all milestones?
+The hardest part about this entire project was having to adjust to finding solutions to every question you would have about coding it. When there would be issues or bugs, you would look up the errors, reach out to other people or just wing it. In the end, you had to find a way to be flexible and find the best solution that still works well with your code. The most useful thing that I've learned from these milestones is to plan ahead and really lay out all the components you want to achieve, make a user-story, and start small and be organized.

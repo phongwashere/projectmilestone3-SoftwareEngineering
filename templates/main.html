@@ -7,7 +7,7 @@
 
 <body>
     <a href="{{ url_for('logout') }}">Press here to logout!</a>
-    <a href="{{ url_for('bp.react') }}">Press here to go to react!</a>
+    <a href="{{ url_for('bp.react') }}">Press here to edit your comments!</a>
     {% with messages = get_flashed_messages() %}
 			{% if messages %}
 				<ul id="flashes" class=flashes>
